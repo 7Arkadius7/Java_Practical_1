@@ -1,33 +1,15 @@
-import java.util.Scanner;
-
-// 2. Вывести все простые числа от 1 до 1000
-
-public class javaSeminar1task2 {
-
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Пожалуйста, введите число, до которого необходимо найти все простые числа: ");
-        int input = scanner.nextInt();
-        int count = 0;
-        scanner.close();
-
-        for (int i = 2; i < input; i++) {
-
-            boolean isPrimeNumber = true;
-
-                for (int j = 2; j < i; j++) {
-                if (i % j == 0) {
-                    isPrimeNumber = false;
-                    break;
+public void printNums(){
+    boolean isPr;
+    for(int i = 1; i < 1000; i++){
+        isPr = i == 1;
+        for(int j = 2; j<1000; j++){
+            if (i >= j && i % j == 0){
+                if(j == i) {
+                    isPr = true;
                 }
-            }            
-            if (isPrimeNumber) {
-                count++;
-                System.out.print(i + ", ");
+                break;
             }
         }
-        
-        System.out.println("всего простых чисел: " + count);
+        if (isPr) System.out.println (i);
     }
-
 }
